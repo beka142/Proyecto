@@ -21,7 +21,7 @@ while (( $data = fgetcsv ( $fp ,1000, ";" )) !== false ) { // Mientras hay líne
 
 	}
 
-	echo " \n";
+	
 
 } 
 fclose ( $fp ); 
