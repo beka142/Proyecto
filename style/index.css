@@ -1,0 +1,30 @@
+
+    .bordertest
+	{
+	    width: 350px;
+	    color:white;
+	}
+
+	.colorwhite
+	{
+	   color:white;
+	   margin-right: auto;
+	   margin-left: auto;
+
+	}
+
+	.textarea
+	{
+	   width: 400px;
+	   height: 40px;
+
+	}
+
+	.tabletest
+	{
+		border-style: solid;
+	}
+
+
+
+
