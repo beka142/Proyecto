@@ -8,8 +8,6 @@
 	.colorwhite
 	{
 	   color:white;
-	   margin-right: auto;
-	   margin-left: auto;
 
 	}
 
@@ -25,6 +23,19 @@
 		border-style: solid;
 	}
 
+	form{
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	div.centerTable{
+        text-align: center;
+	}
+ 
+	div.centerTable table {
+       margin: 0 auto;
+       text-align: left;
+	}
 
 
 

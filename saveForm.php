@@ -1,5 +1,5 @@
 <?php
-$datos = $_POST['Survery'];
+$datos = $_POST['Form'];
 
 if(!empty($datos['nombre'])&&!empty($datos['apellido'])&&!empty($datos['correo'])&&!empty($datos['telefono'])&&!empty($datos['cedula']))
 {
@@ -12,9 +12,10 @@ else{
 
 
 function save(){
+	global $datos;
 	date_default_timezone_set("America/Costa_Rica");
 	$fecha = date("d").date("m").date("Y");
-	$file = fopen($fecha. ".cscv","a");
+	$file = fopen("/tmp/".$fecha. ".csv","a");
 	fwrite($file,$datos['nombre'].";".,$datos['apellido'].";".$datos['correo'].";".$datos['telefono'].";".$datos['cedula']."\n");
 	fclose($file);
 }
@@ -23,9 +24,9 @@ function save(){
 
 
 ?>
-<script type=\"text/javascript\"> 
+<script type="text/javascript"> 
 if(confirm('Saved Succesfully, do you want to add another one?'))
 {
-	window.location.href = 'Survery.html';
+	window.location.href = 'Form.html';
 }
 </script>

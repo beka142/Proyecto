@@ -7,7 +7,7 @@
 	</HEAD>
 	<BODY background="madera.jpg">
 
-		<FORM action="saveFormulario.php" method="post" onsubmit="return confirm('submit?');">
+		<FORM action="saveForm.php" method="post">
 
 			
 			<br/><br/>
@@ -15,13 +15,13 @@
 			<br/><br/>
 			
 
-			<center>
+			<div class="centerTable">
 				<TABLE class="tabletest">
 					<tr>
 						<TD class="bordertest">
 							Nombre:
 							<!--<input id="nombre" type="text" name="nombre" value=""> -->
-							<input type="text" name="Survery[nombre]">
+							<input type="text" name="Form[nombre]">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -29,8 +29,7 @@
 					<tr>
 						<TD class="bordertest">
 							Apellido:
-							<!--<input id="apellido" type="text" name="apellido" value=""> -->
-							<input type="text" name="Survery[apellido]">
+							<input type="text" name="Form[apellido]">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -38,8 +37,7 @@
 					<tr>
 						<TD class="bordertest">
 							Correo Electrónico:
-							<!--<input id="correo" type="email" name="correo" value="" /> -->
-							<input type="text" name="Survery[correo]">
+							<input type="text" name="Form[correo]">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -47,8 +45,7 @@
 					<tr>
 						<TD class="bordertest">
 							Teléfono:
-							<!--<input id="telefono" type="text" name="telefono" value="" />-->
-							<input type="text" name="Survery[telefono]">
+							<input type="text" name="Form[telefono]">
 							<br/><br/>	
 						</TD>
 					</tr>
@@ -56,21 +53,20 @@
 					<tr>
 						<TD class="bordertest">
 							Cédula:
-							<!--<input id="cedula" type="text" name="cedula" value=""> -->
-							<input type="text" name="Survery[cedula]"/>
+							<input type="text" name="Form[cedula]"/>
 							<br/><br/>
 						</TD>
 					</tr>
 				</TABLE>
-			</center>
+			</div>
 
-			<center>
+			<div>
 				<br/><br/>
 				<td>
 					<input type="reset" name="reset" value="Limpiar" />
-					<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Enviar' target ="_blank">
+					<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Enviar'>
 				</td>
-			</center>
+			</div>
 
 		</FORM>
 	</BODY>
