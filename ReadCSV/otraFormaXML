@@ -1,0 +1,23 @@
+<?php
+/* creamos un objeto DOM con nombre $mi_XML*/
+$mi_XML = new DOMDocument();
+ /* incluimos el fichero ejemplo474.xml en ese objeto */
+$mi_XML->load('/Users/Betzy/Sites/Proyecto/ReadCSV/configuracion.xml');
+/* leamos algunas de las propiedades de este objeto */
+echo "La propiedad encoding vale: ".$mi_XML->encoding."<br>";
+echo "La propiedad xmlVersion vale: ".$mi_XML->xmlVersion."<br>";
+echo "La propiedad formatOutput vale: ".$mi_XML->formatOutput."<br>";
+echo "preserveWhiteSpace vale: ".$mi_XML->preserveWhiteSpace ."<br>";
+echo "Como llegar al valor <br><b>";
+echo $mi_XML->documentElement->getElementsByTagName('Conexion')->item(0)->
+             getElementsByTagName('Servidor')->item(0)->nodeValue;
+/*$mi_XML->documentElement nos llevaría al nodo raíz. getElementByTagName('Conexion') nos daría
+  los nodos   (contenidos en el raiz) que tienen por nombre Conexion. El item(0) que le sigue
+  indicaría que vamos al primero de los nodos Conexion y allí mediante getElementsByTagName('Servidor')
+  buscaríamos el array que contiene   los elementos Servidor de ese Conexion concreto.
+  Como solo hay un Servidor estará identificado por el índice 0 (item(0))
+  y de este ya extraeríamos el valor */
+  // LINK: http://www.rinconastur.com/php/php112.php
+die;
+
+?>

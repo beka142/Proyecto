@@ -1,4 +1,26 @@
 <?php
+// Carga un archivo XML
+$confi = new SimpleXMLElement('/Users/Betzy/Sites/Proyecto/ReadCSV/configuracion.xml', null, true);
+$server= $confi->Conexion->Servidor;
+$usuario= $confi->Conexion->Usuario;
+$contraseña= $confi->Conexion->Password;
+$baseDeDatos= $confi->Conexion->DB;
+
+$CuentaDe = $confi->Email->De;
+$ContraseñaCorreo = $confi->Email->Password;
+$ServidorSMTP = $confi->Email->Servidor;
+$CuentaPara = $confi->Email->Para;
+
+//cho $server;
+//echo $usuario;
+//echo $contraseña;
+//echo $baseDeDatos;
+//echo $CuentaDe;
+//echo $ContraseñaCorreo;
+//echo $ServidorSMTP;
+//echo $CuentaPara;
+//die;
+
 $contEstudents = 0;
 
 date_default_timezone_set("America/Costa_Rica");
@@ -24,9 +46,9 @@ if (($gestor = fopen($fecha, "r")) !== FALSE) {
         }
         $fila = substr($fila, 0, -1);
 
-        $conect = mysql_connect('127.0.0.1', 'root', '')
+        $conect = mysql_connect($server, $usuario, $contraseña)
         or die('No se pudo conectar: ' . mysql_error());
-        mysql_select_db('Proyecto1') or die('No se pudo seleccionar la base de datos');
+        mysql_select_db($baseDeDatos) or die('No se pudo seleccionar la base de datos');
 
         // Realizar una consulta MySQL
         echo $celdas."\n";
@@ -44,25 +66,26 @@ if (($gestor = fopen($fecha, "r")) !== FALSE) {
 
     }
     fclose($gestor); //Se cierra la conexión
+    //Incluimos las clases necesarias para enviar el correo
     include("/Users/Betzy/Sites/Proyecto/ReadCSV/Email/class.phpmailer.php"); 
     include("/Users/Betzy/Sites/Proyecto/ReadCSV/Email/class.smtp.php"); 
     $mail = new PHPMailer(); 
     $mail->IsSMTP(); 
     $mail->SMTPAuth = true; 
     $mail->SMTPSecure = "ssl"; 
-    $mail->Host = "smtp.gmail.com"; 
+    $mail->Host = $ServidorSMTP; 
     $mail->Port = 465; 
     $mail->Username = "betzykarinachiroldesleon@gmail.com"; 
-    $mail->Password = "beka2710442";
+    $mail->Password = $ContraseñaCorreo;
 
-    $mail->From = "betzykarinachiroldesleon@gmail.com"; 
+    $mail->From = $CuentaDe; 
     $mail->FromName = "Aministrador"; 
     $mail->Subject = "Registro de estudiantes del día"; 
     $mail->AltBody = "Este es un mensaje"; 
     $mail->MsgHTML("<b>El numero de estudiantes registrados el dia de hoy fue: ".$contEstudents." </b>"); 
     $mail->AddAttachment(""); 
     $mail->AddAttachment(""); 
-    $mail->AddAddress("beka142@hotmail.com", "Gerente"); 
+    $mail->AddAddress($CuentaPara, "Gerente"); 
     $mail->IsHTML(true); 
     if(!$mail->Send()) { 
     echo "Error: " . $mail->ErrorInfo; 

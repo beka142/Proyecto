@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parametros>
+<Conexion>
+	<Servidor>127.0.0.1</Servidor>
+	<Usuario>root</Usuario>
+	<Password></Password>
+	<DB>Proyecto1</DB>
+</Conexion>
+<Email>
+	<De>betzykarinachiroldesleon@gmail.com</De>
+	<Password>beka2710442</Password>
+	<Servidor>smtp.gmail.com</Servidor>
+	<Para>beka142@hotmail.com</Para>
+</Email>
+</Parametros>
